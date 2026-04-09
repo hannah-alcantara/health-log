@@ -11,7 +11,7 @@ A modern health tracking application that helps you log symptoms, track appointm
 ## ✨ Features
 
 ### 📊 Symptom Tracking
-- **Visual Severity Scale**: Rate symptoms 1-10 with color-coded buttons
+- **Visual Severity Scale**: Rate symptoms 0-10 with color-coded buttons
 - **Trigger Tracking**: Multi-select common triggers (stress, caffeine, sleep, etc.) + custom triggers
 - **Timeline View**: Sort and filter symptoms by date, severity, or type
 - **Detailed Notes**: Add context to each symptom log
@@ -233,7 +233,7 @@ yarn build
 {
   userId: string              // Clerk user ID
   symptomType: string         // e.g., "Headache"
-  severity: number            // 1-10 scale
+  severity: number            // 0-10 scale
   triggers: string | null     // Comma-separated
   notes: string | null
   loggedAt: number            // Unix timestamp (ms)

@@ -8,7 +8,7 @@ import type { Id } from '@/convex/_generated/dataModel';
  *
  * Validation Rules:
  * - symptomType: 1-200 characters, trimmed, required
- * - severity: Integer 1-10, required
+ * - severity: Integer 0-10, required
  * - triggers: Max 500 characters, trimmed, optional
  * - notes: Max 2000 characters, trimmed, optional
  * - loggedAt: Unix timestamp (milliseconds), required
@@ -23,7 +23,7 @@ export const symptomSchema = z.object({
   severity: z
     .number()
     .int('Severity must be a whole number')
-    .min(1, 'Severity must be at least 1')
+    .min(0, 'Severity must be at least 0')
     .max(10, 'Severity cannot exceed 10'),
 
   triggers: z
