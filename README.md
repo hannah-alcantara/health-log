@@ -11,7 +11,7 @@ A modern health tracking application that helps you log symptoms, track appointm
 ## ✨ Features
 
 ### 📊 Symptom Tracking
-- **Visual Severity Scale**: Rate symptoms 0-10 with color-coded buttons
+- **Visual Severity Scale**: Rate symptoms 1-10 with color-coded buttons
 - **Trigger Tracking**: Multi-select common triggers (stress, caffeine, sleep, etc.) + custom triggers
 - **Timeline View**: Sort and filter symptoms by date, severity, or type
 - **Detailed Notes**: Add context to each symptom log
@@ -42,7 +42,7 @@ A modern health tracking application that helps you log symptoms, track appointm
 - **Styling**: [Tailwind CSS 4](https://tailwindcss.com/) + [shadcn/ui](https://ui.shadcn.com/)
 - **Database**: [Convex](https://convex.dev/) (real-time reactive queries)
 - **Authentication**: [Clerk](https://clerk.com/) (JWT-based)
-- **AI**: [Google Gemini 2.0 Flash](https://ai.google.dev/gemini-api) (question generation)
+- **AI**: [Google Gemini 2.5 Flash](https://ai.google.dev/gemini-api) (question generation)
 - **Charts**: [Recharts](https://recharts.org/) (lazy-loaded)
 - **Forms**: [React Hook Form](https://react-hook-form.com/) + [Zod](https://zod.dev/) validation
 - **Deployment**: [Vercel](https://vercel.com/) (recommended)
@@ -98,7 +98,7 @@ A modern health tracking application that helps you log symptoms, track appointm
 
    ```bash
    # Initialize Convex (first time)
-   npx convex dev
+   yarn convex:dev
 
    # In a separate terminal, set Gemini API key in Convex
    npx convex env set GEMINI_API_KEY AIza...
@@ -204,8 +204,20 @@ It generates 5 conversational questions like:
 ## 🧪 Testing
 
 ```bash
-# Run type checking
-yarn type-check
+# Run unit/component tests (Jest)
+yarn test
+
+# Run tests in watch mode
+yarn test:watch
+
+# Run tests with coverage report
+yarn test:coverage
+
+# Run end-to-end tests (Playwright)
+yarn test:e2e
+
+# Run E2E tests with interactive UI
+yarn test:e2e:ui
 
 # Run linter
 yarn lint
@@ -221,7 +233,7 @@ yarn build
 {
   userId: string              // Clerk user ID
   symptomType: string         // e.g., "Headache"
-  severity: number            // 0-10 scale
+  severity: number            // 1-10 scale
   triggers: string | null     // Comma-separated
   notes: string | null
   loggedAt: number            // Unix timestamp (ms)
